@@ -66,11 +66,12 @@ describe('Player Object Stuff', function () {
     game.grid[s.x][s.y] = s
     s.moveDown()
     assert.equal(game.grid[s.x][s.y].y, s.y)
+    assert.equal()
     s.moveRight()
     assert.equal(game.grid[s.x][s.y].x, s.x)
   })
 
-  it('should not move if obstacle in the way', function () {
+  it('will not move if obstacle in the way', function () {
     game = new Game()
     game.grid = genGrid()
     s = new Player('Steve', 3, 4, game)
@@ -81,5 +82,10 @@ describe('Player Object Stuff', function () {
     assert.equal(s.y, 4)
     s.moveRight()
     assert.equal(s.x, 3)
+  })
+
+  it('has a way to die', function () {
+    s = new Player('Steve', 3, 4, game)
+    //trigger a game state change to update lives, reset level, etc
   })
 })
