@@ -9,12 +9,12 @@ describe('Player Object Stuff', function () {
     assert.isObject(squirrel);
   })
 
-  it('should have a name', function () {
+  it('has a name', function () {
     s = new Player('Steve')
     assert.equal(s.name, 'Steve')
   })
 
-  it('know current x/y position in the level', function () {
+  it('knows current x/y position in the level', function () {
     s = new Player('Steve', 3, 4)
     assert.equal(s.x, 3)
     assert.equal(s.y, 4)
@@ -26,11 +26,31 @@ describe('Player Object Stuff', function () {
     assert.equal(s.game.currentLevel, 1)
   })
 
-  it('can Move up, down, left right', function () {
-      s = new Player(4,5)
-      s.moveLeft()
-      assert.equal(s.x, 3)
+  it('can move right', function () {
+    s = new Player('Steve', 3, 4)
+      s.moveRight()
+      assert.equal(s.x, 4)
   })
+
+  it('can move left', function () {
+    s = new Player('Steve', 3, 4)
+      s.moveLeft()
+      assert.equal(s.x, 2)
+  })
+
+  it('can move up', function () {
+    s = new Player('Steve', 3, 4)
+      s.moveUp()
+      assert.equal(s.y, 5)
+  })
+
+  it('can move down', function () {
+    s = new Player('Steve', 3, 4)
+      s.moveDown()
+      assert.equal(s.y, 3)
+  })
+
+
 
   it('')
 })
