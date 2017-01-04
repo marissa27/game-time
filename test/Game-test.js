@@ -1,5 +1,6 @@
 var assert = require('chai').assert
 var Game = require('../lib/Game.js');
+var genGrid = require('../lib/grid.js');
 
 // Game:
 //
@@ -35,9 +36,6 @@ describe('Game Object Stuff', function () {
     assert.equal(game.lives, 3)
   })
 
-  it('has a function to load a level/grid')
-
-
   it('can increment the level', function() {
     game = new Game()
     assert.isFunction(game.nextLevel)
@@ -61,6 +59,8 @@ describe('Game Object Stuff', function () {
   })
 
   it('manage the grid level')
+
+  it('has a function to load a level/grid')
 
   it('should keep a timer', function () {
     game = new Game()
