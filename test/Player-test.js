@@ -20,13 +20,13 @@ describe('Player Object Stuff', function () {
     assert.equal(s.y, 4)
   })
 
-  it('should know what level it is in and be able to message it', function () {
+  it('knows what level it is in and be able to message it', function () {
     var game = {currentLevel:1}
     s = new Player('Steve', 3, 4, game)
     assert.equal(s.game.currentLevel, 1)
   })
 
-  it('Move up, down, left right', function () {
+  it('can Move up, down, left right', function () {
       s = new Player(4,5)
       s.moveLeft()
       assert.equal(s.x, 3)
