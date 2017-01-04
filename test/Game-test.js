@@ -60,6 +60,8 @@ describe('Game Object Stuff', function () {
     assert.equal(game.lives, 'game-over')
   })
 
+  it('manage the grid level')
+
   it('should keep a timer', function () {
     game = new Game()
     assert.equal(game.timer, {})

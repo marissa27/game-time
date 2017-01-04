@@ -2,7 +2,6 @@ var assert = require('chai').assert
 var Player = require('../lib/Player.js')
 
 
-
 describe('Player Object Stuff', function () {
   it('Player is an object', function () {
     squirrel = new Player()
@@ -28,29 +27,30 @@ describe('Player Object Stuff', function () {
 
   it('can move right', function () {
     s = new Player('Steve', 3, 4)
-      s.moveRight()
-      assert.equal(s.x, 4)
+    s.moveRight()
+    assert.equal(s.x, 4)
   })
 
   it('can move left', function () {
     s = new Player('Steve', 3, 4)
-      s.moveLeft()
-      assert.equal(s.x, 2)
+    s.moveLeft()
+    assert.equal(s.x, 2)
   })
 
   it('can move up', function () {
     s = new Player('Steve', 3, 4)
-      s.moveUp()
-      assert.equal(s.y, 5)
+    s.moveUp()
+    assert.equal(s.y, 3)
   })
 
   it('can move down', function () {
     s = new Player('Steve', 3, 4)
-      s.moveDown()
-      assert.equal(s.y, 3)
+    s.moveDown()
+    assert.equal(s.y, 5)
   })
 
+  it('can update its position in the level grid', function () {
 
-
-  it('')
+    s = new Player('Steve', 3, 4, game)
+  })
 })
