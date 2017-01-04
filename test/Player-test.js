@@ -59,14 +59,20 @@ describe('Player Object Stuff', function () {
     assert.equal(s.y, 5)
   })
 
-  it('can update its position in the level grid when it moves', function () {
+  it('update position in the level grid when it moves Down', function () {
     game = new Game()
     game.grid = genGrid()
     s = new Player('Steve', 3, 4, game)
     game.grid[s.x][s.y] = s
     s.moveDown()
     assert.equal(game.grid[s.x][s.y].y, s.y)
-    assert.equal()
+  })
+
+  it('update position in the level grid when it moves Right', function () {
+    game = new Game()
+    game.grid = genGrid()
+    s = new Player('Steve', 3, 4, game)
+    game.grid[s.x][s.y] = s
     s.moveRight()
     assert.equal(game.grid[s.x][s.y].x, s.x)
   })
