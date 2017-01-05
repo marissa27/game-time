@@ -4,9 +4,9 @@ var Game = require('../lib/Game.js');
 var genGrid = require('../lib/grid.js');
 
 function returnFake(x,y) {
-  game = new Game()
+  var game = new Game()
   game.grid = genGrid()
-  s = new Player('Steve', x, y, game)
+  var s = new Player('Steve', x, y, game)
   s.game.grid[s.x][s.y] = s
   return s
 }
