@@ -109,7 +109,7 @@ describe('Player Object Stuff', function () {
     var s = returnFake(3,4)
     s.game.grid[4][4] = {name:'angry cat', hostile:true}
     s.moveRight()
-    assert.equal(game.lives, 2)
+    assert.equal(s.game.lives, 2)
   })
 
   it('has a way to die', function () {
