@@ -97,8 +97,8 @@ describe('Player Object Stuff', function () {
 
   it('will not move if obstacle in the way', function () {
     var s = returnFake(3,4)
-    s.game.grid[3][5] = {solid:true}
-    s.game.grid[4][4] = {solid:true}
+    s.game.grid[3][5] = {name:'wall'}
+    s.game.grid[4][4] = {name:'wall'}
     s.moveDown()
     assert.equal(s.y, 4)
     s.moveRight()
