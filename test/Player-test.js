@@ -88,10 +88,31 @@ describe('Player Object Stuff', function () {
     assert.equal(s.x, 2)
   })
 
-  it('will clear itself from the level grid after it moves', function () {
+  it('will clear itself from the level grid after it moves down', function () {
     var s = returnFake(3,4)
     s.moveDown()
     assert.equal(s.game.grid[3][5].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
+  })
+
+  it('will clear itself from the level grid after it moves up', function () {
+    var s = returnFake(3,4)
+    s.moveUp()
+    assert.equal(s.game.grid[3][3].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
+  })
+
+  it('will clear itself from the level grid after it moves left', function () {
+    var s = returnFake(3,4)
+    s.moveLeft()
+    assert.equal(s.game.grid[2][4].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
+  })
+
+  it('will clear itself from the level grid after it moves right', function () {
+    var s = returnFake(3,4)
+    s.moveRight()
+    assert.equal(s.game.grid[4][4].name, 'Steve')
     assert.equal(s.game.grid[3][4].name, 'empty')
   })
 
