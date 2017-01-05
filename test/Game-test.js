@@ -6,8 +6,8 @@ var genGrid = require('../lib/grid.js');
 function returnFake(x,y) {
   var game = new Game()
   game.grid = genGrid()
-  var s = new Player('Steve', x, y, game)
-  s.game.grid[s.x][s.y] = s
+  game.player = new Player('Steve', x, y, game)
+  game.grid[game.player.x][game.player.y] = game.player
   return game
 }
 
@@ -69,6 +69,7 @@ describe('Game Object Stuff', function () {
 
   it('can return the current Player object', function() {
     game = returnFake(0,0)
+    assert.isObject(game.player)
     assert.equal(game.player.name, 'Steve')
   })
 
