@@ -77,11 +77,9 @@ describe('Game Object Stuff', function () {
 
   it('has a function to load a level/grid')
 
-  it('has a timer', function () {
-    game = new Game()
-    game.createCountDown()
-    assert.isFunction(game.timer)
-  })
-
-  it('trigger a game over ')
+  it('should keep a timer', function () {
+  game = new Game()
+  game.createCountDown()
+  assert.isFunction(game.timeRemaining)
+})
 });
