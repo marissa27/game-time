@@ -67,25 +67,25 @@ describe('Player Object Stuff', function () {
   it('update position in the level grid when it moves Up', function () {
     var s = returnFake(3,4)
     s.moveUp()
-    assert.equal(s.game.grid[s.x][s.y].y, s.y)
+    assert.equal(s.y, 3)
   })
 
   it('update position in the level grid when it moves Down', function () {
     var s = returnFake(3,4)
     s.moveDown()
-    assert.equal(s.game.grid[s.x][s.y].y, s.y)
+    assert.equal(s.y, 5)
   })
 
   it('update position in the level grid when it moves Right', function () {
     var s = returnFake(3,4)
     s.moveRight()
-    assert.equal(s.game.grid[s.x][s.y].x, s.x)
+    assert.equal(s.x, 4)
   })
 
   it('update position in the level grid when it moves Left', function () {
     var s = returnFake(3,4)
     s.moveLeft()
-    assert.equal(s.game.grid[s.x][s.y].x, s.x)
+    assert.equal(s.x, 2)
   })
 
   it('will clear itself from the level grid after it moves', function () {
