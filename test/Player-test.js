@@ -34,6 +34,10 @@ describe('Player Object Stuff', function () {
     assert.equal(s.game.currentLevel, 0)
     s.game.nextLevel()
     assert.equal(s.game.currentLevel, 1)
+    s.game.player.game.player.moveRight()
+    var g = s.game
+    g.player.moveRight()
+    assert.equal(s.x, 5)
   })
 
   it('can move right', function () {
@@ -50,8 +54,6 @@ describe('Player Object Stuff', function () {
 
   it('can move up', function () {
     var s = returnFake(3,4)
-    console.log(game);
-    console.log(s);
     s.moveUp()
     assert.equal(s.y, 3)
   })
