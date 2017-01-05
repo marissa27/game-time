@@ -105,7 +105,7 @@ describe('Player Object Stuff', function () {
     assert.equal(s.x, 3)
   })
 
-  it('will tigger a loss of live when it colides with an enemy', function () {
+  it('will tigger a loss of life when it colides with an enemy', function () {
     var s = returnFake(3,4)
     s.game.grid[4][4] = {name:'angry cat', hostile:true}
     s.moveRight()
