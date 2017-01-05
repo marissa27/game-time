@@ -7,14 +7,14 @@ function returnFake(x,y) {
 //NOTE this version returns the player object, NOT the game object. Use s.game instead
   var game = new Game()
   game.grid = genGrid()
-  game.player = new Player('Steve', x, y, game)
+  game.player = new Player({x: x, y: y, game: game})
   game.grid[game.player.x][game.player.y] = game.player
   return game.player
 }
 
 describe('Player Object Stuff', function () {
   it('Player is an object', function () {
-    squirrel = new Player()
+    squirrel = returnFake(1,1)
     assert.isObject(squirrel);
   })
 
