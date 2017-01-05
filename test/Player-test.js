@@ -116,14 +116,36 @@ describe('Player Object Stuff', function () {
     assert.equal(s.game.grid[3][4].name, 'empty')
   })
 
-  it('will not move if obstacle in the way', function () {
+  it('can move all over the place', function () {
     var s = returnFake(3,4)
-    s.game.grid[3][3] = {name: 'wall'}
-    s.game.grid[4][4] = {name: 'wall'}
-    s.moveUp()
-    assert.equal(s.y, 4)
+    s.moveLeft()
     s.moveRight()
-    assert.equal(s.x, 3)
+    s.moveUp()
+    s.moveDown()
+
+    s.moveRight()
+    assert.equal(s.game.grid[3][4].name, 'empty')
+    s.moveDown()
+    s.moveDown()
+    assert.equal(s.game.grid[4][4].name, 'empty')
+    assert.equal(s.game.grid[4][5].name, 'empty')
+    assert.equal(s.game.grid[4][6].name, 'Steve')
+  })
+
+  it('will not move if obstacle in the way', function () {
+    var s = returnFake(2,2)
+    s.game.grid[2][1] = {name: 'wall', solid: true}
+    s.game.grid[2][3] = {name: 'wall', solid: true}
+    s.game.grid[1][2] = {name: 'wall', solid: true}
+    s.game.grid[3][2] = {name: 'wall', solid: true}
+    s.moveUp()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveRight()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveLeft()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveDown()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
   })
 
   it('will tigger a loss of life when it colides with an enemy', function () {
@@ -135,6 +157,7 @@ describe('Player Object Stuff', function () {
 
   it('has a way to die', function () {
     var s = returnFake(3,4)
-    //trigger a game state change to update lives, reset level, etc
+    s.die()
+    assert.equal(s.game.lives, 2)
   })
 })
