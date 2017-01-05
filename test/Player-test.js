@@ -31,6 +31,8 @@ describe('Player Object Stuff', function () {
   it('knows what level it is in and be able to message it', function () {
     var s = returnFake(3,4)
     assert.equal(s.game.currentLevel, 0)
+    s.game.nextLevel()
+    assert.equal(s.game.currentLevel, 1)
   })
 
   it('can move right', function () {
