@@ -4,11 +4,12 @@ var Game = require('../lib/Game.js');
 var genGrid = require('../lib/grid.js');
 
 function returnFake(x,y) {
+//NOTE this version returns the player object, NOT the game object. Use s.game instead
   var game = new Game()
   game.grid = genGrid()
-  var s = new Player('Steve', x, y, game)
-  s.game.grid[s.x][s.y] = s
-  return s
+  game.player = new Player('Steve', x, y, game)
+  game.grid[game.player.x][game.player.y] = game.player
+  return game.player
 }
 
 describe('Player Object Stuff', function () {
