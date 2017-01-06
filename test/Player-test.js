@@ -7,14 +7,14 @@ function returnFake(x,y) {
 //NOTE this version returns the player object, NOT the game object. Use s.game instead
   var game = new Game()
   game.grid = genGrid()
-  game.player = new Player('Steve', x, y, game)
+  game.player = new Player({x: x, y: y, game: game})
   game.grid[game.player.x][game.player.y] = game.player
   return game.player
 }
 
 describe('Player Object Stuff', function () {
   it('Player is an object', function () {
-    squirrel = new Player()
+    squirrel = returnFake(1,1)
     assert.isObject(squirrel);
   })
 
@@ -67,45 +67,88 @@ describe('Player Object Stuff', function () {
   it('update position in the level grid when it moves Up', function () {
     var s = returnFake(3,4)
     s.moveUp()
-    assert.equal(s.game.grid[s.x][s.y].y, s.y)
+    assert.equal(s.y, 3)
   })
 
   it('update position in the level grid when it moves Down', function () {
     var s = returnFake(3,4)
     s.moveDown()
-    assert.equal(s.game.grid[s.x][s.y].y, s.y)
+    assert.equal(s.y, 5)
   })
 
   it('update position in the level grid when it moves Right', function () {
     var s = returnFake(3,4)
     s.moveRight()
-    assert.equal(s.game.grid[s.x][s.y].x, s.x)
+    assert.equal(s.x, 4)
   })
 
   it('update position in the level grid when it moves Left', function () {
     var s = returnFake(3,4)
     s.moveLeft()
-    assert.equal(s.game.grid[s.x][s.y].x, s.x)
+    assert.equal(s.x, 2)
   })
 
-  it('will clear itself from the level grid after it moves', function () {
+  it('will clear itself from the level grid after it moves down', function () {
     var s = returnFake(3,4)
     s.moveDown()
     assert.equal(s.game.grid[3][5].name, 'Steve')
     assert.equal(s.game.grid[3][4].name, 'empty')
   })
 
-  it('will not move if obstacle in the way', function () {
+  it('will clear itself from the level grid after it moves up', function () {
     var s = returnFake(3,4)
-    s.game.grid[3][5] = {name:'wall'}
-    s.game.grid[4][4] = {name:'wall'}
-    s.moveDown()
-    assert.equal(s.y, 4)
-    s.moveRight()
-    assert.equal(s.x, 3)
+    s.moveUp()
+    assert.equal(s.game.grid[3][3].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
   })
 
-  it('will tigger a loss of live when it colides with an enemy', function () {
+  it('will clear itself from the level grid after it moves left', function () {
+    var s = returnFake(3,4)
+    s.moveLeft()
+    assert.equal(s.game.grid[2][4].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
+  })
+
+  it('will clear itself from the level grid after it moves right', function () {
+    var s = returnFake(3,4)
+    s.moveRight()
+    assert.equal(s.game.grid[4][4].name, 'Steve')
+    assert.equal(s.game.grid[3][4].name, 'empty')
+  })
+
+  it('can move all over the place', function () {
+    var s = returnFake(3,4)
+    s.moveLeft()
+    s.moveRight()
+    s.moveUp()
+    s.moveDown()
+
+    s.moveRight()
+    assert.equal(s.game.grid[3][4].name, 'empty')
+    s.moveDown()
+    s.moveDown()
+    assert.equal(s.game.grid[4][4].name, 'empty')
+    assert.equal(s.game.grid[4][5].name, 'empty')
+    assert.equal(s.game.grid[4][6].name, 'Steve')
+  })
+
+  it('will not move if obstacle in the way', function () {
+    var s = returnFake(2,2)
+    s.game.grid[2][1] = {name: 'wall', solid: true}
+    s.game.grid[2][3] = {name: 'wall', solid: true}
+    s.game.grid[1][2] = {name: 'wall', solid: true}
+    s.game.grid[3][2] = {name: 'wall', solid: true}
+    s.moveUp()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveRight()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveLeft()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+    s.moveDown()
+    assert.equal(s.game.grid[2][2].name, 'Steve')
+  })
+
+  it('will tigger a loss of life when it colides with an enemy', function () {
     var s = returnFake(3,4)
     s.game.grid[4][4] = {name:'angry cat', hostile:true}
     s.moveRight()
@@ -114,6 +157,7 @@ describe('Player Object Stuff', function () {
 
   it('has a way to die', function () {
     var s = returnFake(3,4)
-    //trigger a game state change to update lives, reset level, etc
+    s.die()
+    assert.equal(s.game.lives, 2)
   })
 })
