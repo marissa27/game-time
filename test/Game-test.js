@@ -1,6 +1,15 @@
 var assert = require('chai').assert
 var Game = require('../lib/Game.js');
+var Player = require('../lib/Player.js')
 var genGrid = require('../lib/grid.js');
+
+function returnFake(x,y) {
+  var game = new Game()
+  game.grid = genGrid()
+  game.player = new Player('Steve', x, y, game)
+  game.grid[game.player.x][game.player.y] = game.player
+  return game
+}
 
 // Game:
 //
@@ -14,48 +23,54 @@ var genGrid = require('../lib/grid.js');
 describe('Game Object Stuff', function () {
 
   it('game is an object', function () {
-    game = new Game()
+    game = returnFake(0,0)
     assert.isObject(game);
   });
 
   it('game saves the current level and lives', function() {
-    game = new Game()
+    game = returnFake(0,0)
     assert.equal(game.currentLevel, 0)
     assert.equal(game.lives, 3)
   })
 
   it('has a reset function. Reset reloads the level and restarts the timer', function() {
-    game = new Game()
+    game = returnFake(0,0)
     assert.isFunction(game.reset)
   })
 
   it('has a restart function. Restart goes back to level 1 and reset lives to 0', function() {
-    game = new Game()
+    game = returnFake(0,0)
     assert.isFunction(game.restart)
     assert.equal(game.currentLevel, 0)
     assert.equal(game.lives, 3)
   })
 
   it('can increment the level', function() {
-    game = new Game()
+    game = returnFake(0,0)
     assert.isFunction(game.nextLevel)
     game.nextLevel()
     assert.equal(game.currentLevel, 1)
   })
 
   it('can decrement the lives', function() {
-    game = new Game()
+    game = returnFake(0,0)
     assert.isFunction(game.loseLife)
     game.loseLife()
     assert.equal(game.lives, 2)
   })
 
   it('change to game-over when lives = 0. game.currentLevel = "game-over"', function() {
-    game = new Game()
+    game = returnFake(0,0)
     game.lives = 1
     assert.equal(game.lives, 1)
     game.loseLife()
     assert.equal(game.lives, 'game-over')
+  })
+
+  it('can return the current Player object', function() {
+    game = returnFake(0,0)
+    assert.isObject(game.player)
+    assert.equal(game.player.name, 'Steve')
   })
 
   it('manage the grid level')
@@ -63,7 +78,8 @@ describe('Game Object Stuff', function () {
   it('has a function to load a level/grid')
 
   it('should keep a timer', function () {
-    game = new Game()
-    assert.equal(game.timer, {})
-  })
+  game = new Game()
+  game.createCountDown()
+  assert.isFunction(game.timeRemaining)
+})
 });
