@@ -2,10 +2,11 @@ var assert = require('chai').assert
 var Player = require('../lib/Player.js')
 var Game = require('../lib/Game.js');
 var genGrid = require('../lib/grid.js');
+var goal = require('../lib/Goal.js')
 
 function returnFake(x,y) {
 //NOTE this version returns the player object, NOT the game object. Use s.game instead
-  var game = new Game()
+  var game = new Game({context:{}})
   game.grid = genGrid()
   game.player = new Player({x: x, y: y, game: game})
   game.grid[game.player.x][game.player.y] = game.player
@@ -122,7 +123,6 @@ describe('Player Object Stuff', function () {
     s.moveRight()
     s.moveUp()
     s.moveDown()
-
     s.moveRight()
     assert.equal(s.game.grid[3][4].name, 'empty')
     s.moveDown()
@@ -155,9 +155,5 @@ describe('Player Object Stuff', function () {
     assert.equal(s.game.lives, 2)
   })
 
-  it('has a way to die', function () {
-    var s = returnFake(3,4)
-    s.die()
-    assert.equal(s.game.lives, 2)
-  })
+
 })
