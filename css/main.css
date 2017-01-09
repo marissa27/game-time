@@ -1,3 +1,11 @@
+body {
+    background: url("../lib/images/tree.png");
+
+  }
+
 canvas {
   border: 1px dashed black;
+  margin: 0 auto;
+  display: block;
+  background-color: white;
 }
