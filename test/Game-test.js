@@ -4,21 +4,12 @@ var Player = require('../lib/Player.js')
 var genGrid = require('../lib/grid.js');
 
 function returnFake(x,y) {
-  var game = new Game()
+  var game = new Game({context:{}})
   game.grid = genGrid()
-  game.player = new Player('Steve', x, y, game)
+  game.player = new Player({name:'Steve', x:5, y:4, game:game, context:game.context})
   game.grid[game.player.x][game.player.y] = game.player
   return game
 }
-
-// Game:
-//
-// - can load grid(aka: levels)
-// - stores current state: current level, lives, time
-// - can reset level
-// - can trigger game-over state if lives hit 0
-// - can render grid/level onto the canvas
-// - can trigger the Squirrels death (suicide)
 
 describe('Game Object Stuff', function () {
 
@@ -78,8 +69,8 @@ describe('Game Object Stuff', function () {
   it('has a function to load a level/grid')
 
   it('should keep a timer', function () {
-  game = new Game()
-  game.createCountDown()
-  assert.isFunction(game.timeRemaining)
-})
+    game = new Game()
+    game.createCountDown()
+    assert.isFunction(game.timeRemaining)
+  })
 });
