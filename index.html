@@ -3,23 +3,35 @@
 <head>
   <meta charset="utf-8">
   <title>Steve</title>
+  <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
 </head>
 <body id="body">
   <h1>Steve the Squirrel</h1>
   <canvas height="600px" width="800px" id="game"></canvas>
+  <div id="slideout">
+    <p class="rotate">Instructions</p>
+  <div id="slideout_inner">
+    The goal of the game is for Steve to push the nut to the target. Use your arrow keys to move Steve around. Beware of the nutcrackers looking to stop your fun! 
+  </div>
+  </div>
   <section class="bar">
-    <article class="level">
-
+    <article class="bar-item">
+      <p class="level-num">
+      </p>
     </article>
-    <article class="timer">
-
+    <article class="bar-item">
+      <p class="timer-num">
+        TIMER: 60
+      </p>
     </article>
-    <article class="lives">
-
+    <article class="bar-item">
+      <p class="lives-num">
+      </p>
     </article>
     <article class="button">
-      <button>X</button>
+      <button>RESET</button>
     </article>
   </section>
   <script src="main.bundle.js"></script>
