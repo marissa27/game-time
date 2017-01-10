@@ -1,4 +1,5 @@
 var assert = require('chai').assert
+
 var Game = require('../lib/Game.js');
 var Player = require('../lib/Player.js')
 var genGrid = require('../lib/grid.js');
