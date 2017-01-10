@@ -1,6 +1,5 @@
 body {
     background-color: honeydew;
-
   }
 
 canvas {
@@ -8,4 +7,8 @@ canvas {
   margin: 0 auto;
   display: block;
   background-color: white;
+}
+
+.bar {
+  display: flex;
 }
