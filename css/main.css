@@ -1,5 +1,5 @@
 body {
-    background: url("../lib/images/grass.jpg")  no-repeat center center fixed;
+    /*background: url("../lib/images/grass.jpg")  no-repeat center center fixed;*/
     font-family: 'Lora', serif;
   }
 
@@ -23,7 +23,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: honeydew;
+  width: 780px;
+  margin: 10px auto;
+  padding: 15px;
 }
 
 .bar-item {
@@ -34,10 +37,10 @@ h1 {
 			position: fixed;
 			top: 40px;
 			right: 0;
-			width: 35px;
-			padding: 12px 0;
+			padding: 10px;
 			text-align: center;
-			background: #cc0e13;
+			background: black;
+      color: white;
 			-webkit-transition-duration: 0.3s;
 			-moz-transition-duration: 0.3s;
 			-o-transition-duration: 0.3s;
@@ -54,7 +57,7 @@ h1 {
 			background: #cc0e13;
 			width: 200px;
 			padding: 25px;
-			height: 130px;
+      line-height: 2;
 			-webkit-transition-duration: 0.3s;
 			-moz-transition-duration: 0.3s;
 			-o-transition-duration: 0.3s;
