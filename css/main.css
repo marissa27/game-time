@@ -7,7 +7,8 @@ canvas {
   border: 1px dashed black;
   margin: 0 auto;
   display: block;
-  background-color: honeydew;}
+  background-color: rgba(240, 255, 240, .5);
+}
 
 article {
   margin-right: 10px;
@@ -78,7 +79,7 @@ h1 {
 			right: 0;
 		}
 
-.rotate {
+/*.rotate {
 /* Safari */
 -webkit-transform: rotate(-90deg);
 /* Firefox */
@@ -89,4 +90,4 @@ h1 {
 -o-transform: rotate(-90deg);
 /* Internet Explorer */
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}
+}*/
