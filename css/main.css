@@ -1,9 +1,10 @@
 body {
-    font-family: 'Lora', serif;
+  background: url('../lib/images/background.jpg')no-repeat;
+  font-family: 'Lora', serif;
   }
 
+
 canvas {
-  display: block;
   margin: 0 auto;
   background: url("../lib/images/grass.png") repeat center center fixed;
   border: 5px solid #45871E;
@@ -14,8 +15,8 @@ article {
 }
 
 h1 {
-  color: #45871E;
-  font-size: 2em;
+  text-align: center;
+  margin: 15px 0;
 }
 
 .bar {
@@ -28,65 +29,26 @@ h1 {
   background-color: honeydew;
 }
 
-/*Side Panel*/
-#slideout {
-	position: fixed;
-	top: 40px;
-	right: 0;
-	padding: 10px;
+.inner-bar {
+  width: 100px;
+}
+
+.container {
   text-align: center;
-  background: black;
-  color: white;
-	-webkit-transition-duration: 0.3s;
-	-moz-transition-duration: 0.3s;
-	-o-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	-webkit-border-radius: 5px 0 0 5px;
-	-moz-border-radius: 5px 0 0 5px;
-	border-radius: 5px 0 0 5px;
+  padding: 0 90px;
 }
 
-#slideout_inner {
-	position: fixed;
-	top: 40px;
-	right: -250px;
-  padding: 25px;
-	width: 200px;
-  background: black;
-  line-height: 2;
-	-webkit-transition-duration: 0.3s;
-	-moz-transition-duration: 0.3s;
-	-o-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	text-align: left;
-	-webkit-border-radius: 0 0 0 5px;
-	-moz-border-radius: 0 0 0 5px;
-	border-radius: 0 0 0 5px;
+.instr {
+  position: absolute;
+  margin-left: 30px;
 }
 
-#slideout_inner textarea {
-  height: 100px;
-	width: 190px;
-	margin-bottom: 6px;
+.button {
+  background-color: none;
+
 }
 
-#slideout:hover {
-	right: 250px;
-}
+.button:hover {
+  border-style: none;
 
-#slideout:hover #slideout_inner {
-	right: 0;
 }
-
-/*.rotate {
-/* Safari */
--webkit-transform: rotate(-90deg);
-/* Firefox */
--moz-transform: rotate(-90deg);
-/* IE */
--ms-transform: rotate(-90deg);
-/* Opera */
--o-transform: rotate(-90deg);
-/* Internet Explorer */
-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}*/

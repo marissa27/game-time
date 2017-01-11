@@ -9,32 +9,31 @@
   <link rel="icon" type="image/png" href="/lib/images/steve-fav.png" />
 </head>
 <body id="body">
-  <h1>Steve the Squirrel</h1>
-  <canvas height="600px" width="800px" id="game"></canvas>
+  <h1><img src="/lib/images/title.png"></h1>
+  <section class="container">
+    <canvas height="600px" width="800px" id="game"></canvas>
+    <img class="instr" src="/lib/images/instructions.png">
+  </section>
   <section class="bar">
-    <article class="bar-item">
+    <article class="inner-bar bar-item">
       <p class="level-num">
       </p>
     </article>
-    <article class="bar-item">
+    <article class="inner-bar bar-item">
       <p class="timer-num">
-        TIMER: 60
       </p>
     </article>
-    <article class="bar-item">
+    <article class="inner-bar bar-item">
       <p class="lives-num">
       </p>
     </article>
-    <article class="button">
-      <button id='reset'>RESET</button>
-      <button id='pause'>PAUSE</button>
+    <article class="inner-bar reset">
+      <button id='reset' class='button'>RESET</button>
+    </article>
+    <article class="inner-bar pause">
+      <button id='pause' class='button'>PAUSE</button>
     </article>
   </section>
-  <section class="direction">
-    <article>
-          <p>Help Steve to push the nut to his home. Use your <emphasis>arrow keys</emphasis> to move Steve around. Watch the timer and beware of the nutcrackers looking to stop your fun!</p>
-        </article>
-      </section>
   <script src="main.bundle.js"></script>
 </body>
 </html>
