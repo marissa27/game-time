@@ -5,8 +5,7 @@ var genGrid = require('../lib/grid.js');
 var goal = require('../lib/Goal.js')
 
 function returnFake(x,y) {
-//NOTE this version returns the player object, NOT the game object. Use s.game instead
-  var game = new Game({context:{}})
+  var game = new Game({context:{}, levelJSON: ''})
   game.grid = genGrid()
   game.player = new Player({x: x, y: y, game: game})
   game.grid[game.player.x][game.player.y] = game.player
@@ -33,12 +32,8 @@ describe('Player Object Stuff', function () {
   it('knows what level it is in and be able to message it', function () {
     var s = returnFake(3,4)
     assert.equal(s.game.currentLevel, 0)
-    s.game.nextLevel()
-    assert.equal(s.game.currentLevel, 1)
-    s.game.player.game.player.moveRight()
-    var g = s.game
-    g.player.moveRight()
-    assert.equal(s.x, 5)
+    s.moveRight()
+    assert.equal(s.x, 4)
   })
 
   it('can move right', function () {
@@ -151,6 +146,7 @@ describe('Player Object Stuff', function () {
   it('will tigger a loss of life when it colides with an enemy', function () {
     var s = returnFake(3,4)
     s.game.grid[4][4] = {name:'angry cat', hostile:true}
+    s.game.refreshGrid()
     s.moveRight()
     assert.equal(s.game.lives, 2)
   })
