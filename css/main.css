@@ -8,6 +8,7 @@ canvas {
   margin: 0 auto;
   background: url("../lib/images/grass.png") repeat center center fixed;
   border: 5px solid #45871E;
+  outline: none;
 }
 
 article {
