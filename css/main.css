@@ -1,8 +1,9 @@
 body {
   background: url('../lib/images/background.jpg')no-repeat;
-  font-family: 'Lora', serif;
-  }
-
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
 canvas {
   margin: 0 auto;
@@ -16,8 +17,8 @@ article {
 }
 
 h1 {
-  text-align: center;
   margin: 15px 0;
+  text-align: center;
 }
 
 .bar {
@@ -31,25 +32,27 @@ h1 {
 }
 
 .inner-bar {
-  width: 100px;
+  width: 150px;
 }
 
 .container {
-  text-align: center;
   padding: 0 90px;
+  text-align: center;
 }
 
 .instr {
-  position: absolute;
   margin-left: 30px;
+  position: absolute;
 }
 
 .button {
-  background-color: none;
-
+  width: 75px;
+  background-color: green;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
 }
 
 .button:hover {
   border-style: none;
-
 }
