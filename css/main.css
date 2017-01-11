@@ -1,13 +1,12 @@
 body {
-    /*background: url("../lib/images/grass.jpg")  no-repeat center center fixed;*/
     font-family: 'Lora', serif;
   }
 
 canvas {
-  border: 1px dashed black;
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
   background: url("../lib/images/grass.png") repeat center center fixed;
+  border: 5px solid #45871E;
 }
 
 article {
@@ -15,72 +14,69 @@ article {
 }
 
 h1 {
-  color: white;
+  color: #45871E;
   font-size: 2em;
 }
 
 .bar {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: honeydew;
-  width: 780px;
   margin: 10px auto;
   padding: 15px;
-}
-
-.bar-item {
+  width: 780px;
+  background-color: honeydew;
 }
 
 /*Side Panel*/
 #slideout {
-			position: fixed;
-			top: 40px;
-			right: 0;
-			padding: 10px;
-			text-align: center;
-			background: black;
-      color: white;
-			-webkit-transition-duration: 0.3s;
-			-moz-transition-duration: 0.3s;
-			-o-transition-duration: 0.3s;
-			transition-duration: 0.3s;
-			-webkit-border-radius: 5px 0 0 5px;
-			-moz-border-radius: 5px 0 0 5px;
-			border-radius: 5px 0 0 5px;
-		}
+	position: fixed;
+	top: 40px;
+	right: 0;
+	padding: 10px;
+  text-align: center;
+  background: black;
+  color: white;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+}
 
 #slideout_inner {
-			position: fixed;
-			top: 40px;
-			right: -250px;
-			background: #cc0e13;
-			width: 200px;
-			padding: 25px;
-      line-height: 2;
-			-webkit-transition-duration: 0.3s;
-			-moz-transition-duration: 0.3s;
-			-o-transition-duration: 0.3s;
-			transition-duration: 0.3s;
-			text-align: left;
-			-webkit-border-radius: 0 0 0 5px;
-			-moz-border-radius: 0 0 0 5px;
-			border-radius: 0 0 0 5px;
-		}
+	position: fixed;
+	top: 40px;
+	right: -250px;
+  padding: 25px;
+	width: 200px;
+  background: black;
+  line-height: 2;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	text-align: left;
+	-webkit-border-radius: 0 0 0 5px;
+	-moz-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 5px;
+}
 
 #slideout_inner textarea {
-			width: 190px;
-			height: 100px;
-			margin-bottom: 6px;
-		}
+  height: 100px;
+	width: 190px;
+	margin-bottom: 6px;
+}
 
 #slideout:hover {
-			right: 250px;
-		}
+	right: 250px;
+}
 
 #slideout:hover #slideout_inner {
-			right: 0;
-		}
+	right: 0;
+}
 
 /*.rotate {
 /* Safari */
