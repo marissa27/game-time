@@ -6,7 +6,7 @@ canvas {
   display: block;
   margin: 0 auto;
   background: url("../lib/images/grass.png") repeat center center fixed;
-  border: 1px dashed black;
+  border: 5px solid #45871E;
 }
 
 article {
@@ -14,7 +14,7 @@ article {
 }
 
 h1 {
-  color: white;
+  color: #45871E;
   font-size: 2em;
 }
 
@@ -52,7 +52,7 @@ h1 {
 	right: -250px;
   padding: 25px;
 	width: 200px;
-  background: #cc0e13;
+  background: black;
   line-height: 2;
 	-webkit-transition-duration: 0.3s;
 	-moz-transition-duration: 0.3s;
